@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<ruleset name="HabariCodingStandard">
+	<description>Habari Coding Standard.</description>
+
+	<!-- Habari standards implemented so far -->
+	<!-- PHP Tags -->
+	<rule ref="Generic.PHP.DisallowShortOpenTag"/>
+
+	<!-- :[ Indenting ]: -->
+	<!-- WhiteSpace.DisallowSpaceIndent -->
+
+	<!-- :[ Naming Conventions ]: -->
+	<!-- NamingConventions.VariableName -->
+	<rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+	<rule ref="Squiz.Classes.ValidClassName"/>
+	<!-- NamingConventions.FunctionName -->
+
+	<!-- :[ Control Structures ]: -->
+	<!-- ControlStructures.ControlSignature	(if/for/while/do) // TODO: Doesn't seem to pickup Habari's "else" usage. Think I need to use SVN version -->
+	<!-- TODO: ControlStructures.ComparisonOrder -->
+	<!-- ControlStructures.SwitchDeclaration -->
+	<rule ref="Generic.ControlStructures.InlineControlStructure">
+		<properties>
+			<property name="error" value="false" />  // discouraged.
+		</properties>
+	</rule>
+	
+
+	<!-- :[ Function Calls ]: -->
+	<rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"/>
+	<!-- Functions.FunctionCallSignature -->
+	<rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
+	<!-- TODO: Functions.FunctionDeclaration - using Generic.Functions.OpeningFunctionBraceBsdAllman at the moment. Not sure if we need to change this. -->
+
+	<!-- :[ Arrays ]: -->
+	<!-- Arrays.ArrayDeclaration -->
+	<!-- ArraysFormat -> in above sniff -->
+	<!-- ArraysTrailingComma -> in above sniff -->
+
+	<!-- :[ Comments ]: -->
+	<!-- Comments.DisallowHashComments	// discouraged -->
+	<!-- TODO: Comments.InlineDocumentation -->
+	<!-- TODO: Comments.MultiLine // need to customise Squiz_Sniffs_Commenting_BlockCommentSniff -->
+
+	<!-- :[ Boolean Values & Null ]: -->
+	<!-- PHP.BooleanValues -->
+
+	<!-- :[ Database Access ]: -->
+	<!-- TODO: DatabaseAccess -->
+
+	<!-- :[Including Code ]: -->
+	<!-- Files.IncludingFile // TODO: Need to still implement parenthesis spacing testing and a not encouraging use of *_once() -->
+
+	<!-- :[ Regular Expressions ]: -->
+	<!-- TODO: Regex -->
+
+	<!-- :[ Dynamic Variables ]: -->
+	<!-- TODO: DynamicVariables		// discouraged -->
+
+	
+	<!-- End of Habari standards implemented & Tested -->
+
+	<!-- :[ CNS Specific rules and like to haves that aren't documented in the Habari spec yet -->
+
+	<!-- Type casts should have spaces on either side -->
+	<rule ref="Generic.Formatting.SpaceAfterCast"/>
+
+	<!-- Ensure logical && and || operators are used instead of AND or OR -->
+	<rule ref="Squiz.Operators.ValidLogicalOperators"/>
+	
+	<!-- Use Unix newlines: Not in spec, but one I like to enforce myself. -->
+	<rule ref="Generic.Files.LineEndings">
+		<properties>
+			<property name="eolChar" value="\n"/>
+		</properties>
+	</rule>
+
+
+</ruleset>
